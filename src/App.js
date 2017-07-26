@@ -1,23 +1,25 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import {Switch, Route} from 'react-router-dom';
 
-import './App.css';
-import Home from './components/Home/Home';
-import OrderReview from './components/OrderReview/OrderReview';
-import NotFound from './components/NotFound/NotFound';
+import Home from './Components/Home/Home';
+import Cart from './Components/Cart/Cart';
 
+// add "/react-ema-john" before all paths to make it work on gh-pages
+const Main = () => (
+  <main>
+   <Switch>
+     <Route exact path='/' component={Home}/>
+     <Route exact path='/cart' component={Cart}/>
+   </Switch>
+  </main>
+)
+
+//PlaceHolder for Components
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Router>
-          <Switch>
-            <Route exact path="/" component={Home}></Route>
-            <Route path="/shop" component={Home}></Route>
-            <Route path="/review" component={OrderReview}></Route>
-            <Route path="*" component={NotFound}></Route>
-          </Switch>
-        </Router>
+        <Main />
       </div>
     );
   }
