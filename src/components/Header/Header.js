@@ -1,24 +1,18 @@
 import React, { Component } from 'react';
-
-import logo from '../../images/logo.png';
-import './Header.css';
-
+import './header.css';
+import logo from '../../images/logo.svg';
+import Navmenu from '../Navmenu/navmenu';
 class Header extends Component {
     render() {
         return (
-            <div className="header">
-                <img src={logo} alt=""/>
-                <ul>
-                    <li>
-                        <a href="/shop">Shop</a>
-                    </li>
-                    <li>
-                        <a href="/review">Order Review</a>
-                    </li>
-                    <li>
-                        <a href="/manage">Manage Inventory</a>
-                    </li>
-                </ul>
+            <div>
+                <div className="jumbotron jumbotron-fluid">
+                    <div className="container-fluid">
+                        <img src={logo} className="App-logo" alt="logo" />
+                        <p className="lead">This is a react test app</p>
+                        <Navmenu></Navmenu>
+                    </div>
+                </div>
             </div>
         );
     }
