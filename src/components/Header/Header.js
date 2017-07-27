@@ -1,27 +1,23 @@
 import React, { Component } from 'react';
-
-import logo from '../../images/logo.png';
 import './Header.css';
+import logo from '../../images/logo.png';
 
 class Header extends Component {
-    render() {
-        return (
-            <div className="header">
-                <img src={logo} alt=""/>
-                <ul>
-                    <li>
-                        <a href="/shop">Shop</a>
-                    </li>
-                    <li>
-                        <a href="/review">Order Review</a>
-                    </li>
-                    <li>
-                        <a href="/manage">Manage Inventory</a>
-                    </li>
-                </ul>
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div className="header">
+        <div className="logo-section">
+          <img src={logo} alt="logo"/>
+        </div>
+        <div className="menu-section">
+          <ul className="container list-remove-defaults">
+            <li><a href="#" className="menu-selected">Shop</a></li>
+            <li><a href="#">Cart</a></li>
+          </ul>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default Header;

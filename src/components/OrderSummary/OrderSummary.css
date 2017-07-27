@@ -1,0 +1,11 @@
+.order-summary h3 {
+    text-align: center;
+}
+
+.order-summary p {
+    padding: 0 0 0 16px;
+}
+
+.order-summary > div {
+    border-bottom: 1px solid #999;
+}
