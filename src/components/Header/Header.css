@@ -1,31 +1,33 @@
-.header img{
-    height: 80px;
+.logo-section {
+  text-align: center;
+  padding: 16px 0 0 0;
 }
 
-.header ul{
-    background-color: black;
-    height: 40px;
-    text-align: left;
-    margin-bottom: 0px;
+.logo-section img {
+  height: 70px;
 }
 
-.header li{
-    list-style: none;
-    display: inline-block;
-    margin-right: 15px;
-    line-height: 30px;
-    padding: 5px;
+.header ul li {
+  display: inline-block;
 }
 
-.header a{
-    text-decoration: none;
-    color: white;
+.header ul a {
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+  padding: 16px;
+  border-bottom: 2px solid transparent;
 }
 
-.header li:hover{
-    background-color: lightgray;
+.header ul a.menu-selected {
+  color: red;
 }
 
-.header a:visited{
-    color: white;
+.header ul a:hover {
+  /*background: #666;*/
+  border-bottom: 2px solid red;
+}
+
+.menu-section {
+  background: #000;
 }

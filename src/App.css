@@ -1,24 +1,31 @@
-.App {
-  text-align: center;
+.container {
+  max-width: 1024px;
+  padding: 0 20px;
+  box-sizing: border-box;
+  margin: 0 auto 50px auto;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.shop-items {
+  width: 75%;
+  border:1px solid #999;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.order-summary {
+  width: 25%;
+  border: 1px solid #999;
+  border-left: 0;
 }
 
-.App-intro {
-  font-size: large;
+.shopping-page-section {
+  display: flex;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.list-remove-defaults {
+  padding: 0;
+  list-style: none;
+  margin-bottom: 0;
+}
+
+.container.list-remove-defaults {
+  padding: 0 20px;
 }
