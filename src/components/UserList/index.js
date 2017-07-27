@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Table,Jumbotron,Col,Clearfix } from "react-bootstrap";
+import { Table,Jumbotron,Col,Clearfix,Button } from "react-bootstrap";
 import { Link } from 'react-router-dom';
 
 class TableDataRow extends Component {
@@ -7,14 +7,22 @@ class TableDataRow extends Component {
         return (
             <tr>
                 <td>
-                    <Link to={`/user/${this.props.data.id}`}>{this.props.data.name}</Link>
+                    <Link to={"/user/" + this.props.data.id}>{this.props.data.name}</Link>
                 </td>
                 <td>{this.props.data.email}</td>
                 <td>{this.props.data.address.street + ", " + this.props.data.address.suite + 
                     ", " + this.props.data.address.city}</td>
                 <td>{this.props.data.company.name}</td>
+                <td>
+                    <Button bsStyle="link" onClick={this.delete.bind(this)}> 
+                        <i className="glyphicon glyphicon-trash action-link" />
+                    </Button>
+             </td>
             </tr>
         );
+    }
+    delete(){
+        this.props.delete(this.props.data.id);
     }
 }
 
@@ -28,7 +36,8 @@ class UserList extends Component {
     render() {
         let table = 
         this.state.userList.map((user ,i)=>{
-            return ( <TableDataRow data={user} key={i}/> );
+            return ( <TableDataRow data={user} key={i}
+            delete={this.deleteEntry.bind(this)}/> );
         });
         return (
         <Jumbotron >
@@ -42,7 +51,8 @@ class UserList extends Component {
                         <th>Name</th>
                         <th>E-mail</th>
                         <th>Office Address</th>
-                        <th>Office name</th>
+                        <th>Office Name</th>
+                        <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -56,6 +66,12 @@ class UserList extends Component {
     }
     componentDidMount(){
         this.getUseList();
+    }
+    deleteEntry(id) {
+         const newList = this.state.userList.filter((user) => {
+            return id !== user.id;
+        });
+        this.setState({ userList: newList });
     }
     getUseList(){
         fetch('https://jsonplaceholder.typicode.com/users')
