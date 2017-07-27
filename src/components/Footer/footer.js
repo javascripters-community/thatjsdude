@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-class NotFound extends Component {
+class Footer extends Component {
     render() {
         return (
             <div>
-                <h1>Developer is sleeping</h1>
+
             </div>
         );
     }
 }
 
-export default NotFound;
+export default Footer;

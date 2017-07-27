@@ -1,31 +1,18 @@
-.header img{
-    height: 80px;
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
 }
 
-.header ul{
-    background-color: black;
-    height: 40px;
-    text-align: left;
-    margin-bottom: 0px;
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
-.header li{
-    list-style: none;
-    display: inline-block;
-    margin-right: 15px;
-    line-height: 30px;
-    padding: 5px;
+.jumbotron.jumbotron-fluid {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  padding-top: 10px;
 }
-
-.header a{
-    text-decoration: none;
-    color: white;
-}
-
-.header li:hover{
-    background-color: lightgray;
-}
-
-.header a:visited{
-    color: white;
+.jumbotron.jumbotron-fluid .container-fluid {
+  margin: 0;
 }

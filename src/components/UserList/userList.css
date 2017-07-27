@@ -1,0 +1,7 @@
+.user-card .card-block {
+    padding: 10px;
+}
+.user-card .card-block .card-title {
+    margin: 0;
+    cursor: pointer;
+}
