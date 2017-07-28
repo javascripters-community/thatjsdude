@@ -35,31 +35,26 @@ class UserContent extends Component {
                 const userList = res.data;
                 console.log(res)
                 this.setState({ userList });
-                if (this.props.location.query != undefined) {
-                    let dublipcateData = this.state.userList;
-                    debugger;
-                    let self = this;
-                    let data = dublipcateData.map((el, i) => {
-                        if (el.id == self.props.location.query[0]) {
-                            el.name = self.props.location.query[1];
-                            el.email = self.props.location.query[2];
-                            el.address.city = self.props.location.query[3];
-                            this.setState({
-                                userList: dublipcateData
-                            })
-                        }
-                    })
-
-
-                }
-
-
-
-
+                this.compareData();
             }).catch(error => {
                 console.log(error);
             });
     }
+
+    compareData() {
+        if (this.props.location.query != undefined) {
+            let dublipcateData = this.state.userList;
+            let data = dublipcateData.map((el, i) => {
+                if (el.id == this.props.location.query[0]) {
+                    el.name = this.props.location.query[1];
+                    el.email = this.props.location.query[2];
+                    el.address.city = this.props.location.query[3];
+                    this.setState({ userList: dublipcateData })
+                }
+            }).bind(this)
+        }
+    }
+
 
     /**
       * @FunctionName: getUserDetails
