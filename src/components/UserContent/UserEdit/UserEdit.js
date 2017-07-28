@@ -62,8 +62,7 @@ export class UserEdit extends Component {
             <form>
                 <div className="form-group">
                     <label htmlFor="userName">Name:</label>
-                    <input type="text" className="form-control" onChange={this.onNameChange.bind(this)}
-                        id="userName" value={this.state.name} />
+                    <input type="text" className="form-control" onChange={this.onNameChange.bind(this)} id="userName" value={this.state.name} />
                 </div>
                 <div className="form-group">
                     <label htmlFor="email">Email:</label>
@@ -73,11 +72,7 @@ export class UserEdit extends Component {
                     <label htmlFor="address">City:</label>
                     <input type="text" className="form-control" onChange={this.onAddressChange.bind(this)} id="address" value={this.state.city} />
                 </div>
-                <Link type="submit" className="btn btn-default"
-                    to={{
-                        pathname: '/usersList',
-                        query: [this.state.id, this.state.name, this.state.email, this.state.city]
-                    }}>Submit</Link>
+                <Link type="submit" className="btn btn-default" to={{ pathname: '/usersList', query: [this.state.id, this.state.name, this.state.email, this.state.city] }}>Submit</Link>
                 <Link to={{ pathname: '/usersList' }} className="btn btn-default">Cancel</Link>
             </form>
         );
