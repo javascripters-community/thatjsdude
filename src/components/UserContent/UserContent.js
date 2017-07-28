@@ -4,7 +4,7 @@ import axios from 'axios';
 import { UserDetails } from './UserDetails/UserDetails';
 import { UsersContainer } from './UserContainer/UsersContainer';
 import AppHeader from '../AppHeader/AppHeader';
-
+import _ from 'lodash';
 
 /**
   * @ClassName: Home
@@ -35,6 +35,27 @@ class UserContent extends Component {
                 const userList = res.data;
                 console.log(res)
                 this.setState({ userList });
+                if (this.props.location.query != undefined) {
+                    let dublipcateData = this.state.userList;
+                    debugger;
+                    let self = this;
+                    let data = dublipcateData.map((el, i) => {
+                        if (el.id == self.props.location.query[0]) {
+                            el.name = self.props.location.query[1];
+                            el.email = self.props.location.query[2];
+                            el.address.city = self.props.location.query[3];
+                            this.setState({
+                                userList: dublipcateData
+                            })
+                        }
+                    })
+
+
+                }
+
+
+
+
             }).catch(error => {
                 console.log(error);
             });
@@ -53,10 +74,9 @@ class UserContent extends Component {
             selectedId: user.id
         })
     }
+
     render() {
-        if(this.props.location.query!= undefined){
-          return <div className="success-msg">User updated successfully !!</div>
-         }
+
         return (
             <div>
                 <div className="col-md-7">
