@@ -1,0 +1,35 @@
+.Item{
+    margin-bottom: 20px;
+    background-color: #FFFFFF;
+    display: flex;
+    text-align: left;
+    box-shadow: 0 0 8px 1px rgba(0,0,0,0.2);
+    height: 250px;
+}
+.Item img{
+    display: flex;
+}
+.Item .Item-Details{
+    padding: 30px 20px;
+    width: 100%;
+}
+.Item .Item-Titel{
+    margin: 0px;
+}
+.Item .Item-Location{
+    padding-top: 20px;
+    color: gray
+}
+.Item .Item-Price{
+    padding-top: 20px;
+    float: right;
+    margin-right: 20px
+}
+.Item .Item-Price button{
+    padding: 10px;
+    border-radius: 5px;
+    color: #FFFFFF;
+    background: #F34F4F;
+    border: 1px solid #F34F4F;
+    cursor: pointer;
+}
