@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   entry: {
-    'index_bundle'              : './client/index.js'
+    'index_bundle'              : './client/js/index.js'
   },
   output: {
     path      : path.resolve('dist'),

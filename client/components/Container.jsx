@@ -3,7 +3,6 @@
 */
 import React from 'react';
 import Box from './Box.jsx';
-// import Masonry from 'masonry-layout';
 
 export default class Container extends React.Component {
 	
