@@ -9,13 +9,23 @@ export class UserEdit extends Component {
 
     constructor(props) {
         super();
-        this.state = {
-            id: props.location.query.id,
-            name: props.location.query.name,
-            email: props.location.query.email,
-            city: props.location.query.address.city,
-            street: props.location.query.address.street
+        if (props.addUser) {
+            this.state = {
+                name: '',
+                email: '',
+                city: ''
+            }
         }
+        else {
+            this.state = {
+                id: props.location.query.id,
+                name: props.location.query.name,
+                email: props.location.query.email,
+                city: props.location.query.address.city,
+                street: props.location.query.address.street
+            }
+        }
+
     }
 
     /**

@@ -24,12 +24,7 @@ export class UserDetails extends Component {
                         <li><span className="input-field">Email:</span><span>{this.props.singleUser.email}</span></li>
                         <li><span className="input-field">City:</span><span>{this.props.singleUser.address.city}</span></li>
                     </ul>
-                    <Link className="edit pull-right btn btn-primary"
-                        to={{
-                            pathname: '/userEdit/:' + this.props.singleUser.id,
-                            params: this.props.singleUser.id,
-                            query: this.props.singleUser
-                        }}>Edit</Link>
+                    <Link className="edit pull-right btn btn-primary" to={{ pathname: '/userEdit/:' + this.props.singleUser.id, params: this.props.singleUser.id, query: this.props.singleUser}}>Edit</Link>
 
                     <button className="pull-right btn btn-primary" onClick={this.removeUser.bind(this)}>Remove</button>
                 </div>
