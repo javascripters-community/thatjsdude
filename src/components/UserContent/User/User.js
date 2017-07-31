@@ -10,8 +10,6 @@ export class User extends Component {
 
     constructor(props) {
         super();
-        console.log('props')
-        console.log(props)
     }
 
     /**
@@ -25,16 +23,13 @@ export class User extends Component {
     }
 
     render() {
+        
         return (
             <li className={(this.props.selectedId == this.props.user.id ? 'active-user' : '') + ' pull-left user-data'} onClick={() => { this.onGetUserDetails(this.props.user) } }>
                 <ul className="pull-left">
                     <li><span className="input-field">Name:</span><span>{this.props.user.name}</span></li>
                     <li><span className="input-field">Email:</span><span>{this.props.user.email}</span></li>
                     <li><span className="input-field">City:</span><div><span>{this.props.user.address.city}</span></div></li>
-                    <Link className="pull-right btn btn-primary"
-                        to={{pathname:'/userEdit/:' + this.props.user.id,
-                        params : this.props.user.id ,
-                        query: this.props.user }}>Edit</Link>
                 </ul>
             </li>
         );

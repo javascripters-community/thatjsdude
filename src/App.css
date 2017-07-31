@@ -290,10 +290,24 @@ header h1 {
     font-size: 14px;
     margin-bottom: 20px;
 }
+.edit{
+    margin-left:10px;
+} 
+Link{
+    text-decoration: none;
+}
+.user-list-header p{
+    text-decoration: none;
+    text-align: center;
+    color: #fff;
+    padding: 5px 10px;
+    background: #333;
+    margin-bottom: 10px;}
 .user-data ul{width:100%}
 .user-detail {
     background: #ddd;
     position: fixed;
+    width: 39%;
     margin: 50px 0;
 }
 .user-data ul li,
@@ -313,7 +327,8 @@ ul li span {
     width: 100px;
 }
 .no-user-selected {
-    margin: 50px;
+    margin: 125px 50px 50px 50px;
+    position: fixed;
     color:red;
 }
 .success-msg{

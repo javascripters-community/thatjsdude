@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import HomeContent from '../HomeContent/HomeContent';
 import axios from 'axios';
 import { UserDetails } from './UserDetails/UserDetails';
@@ -23,6 +24,7 @@ class UserContent extends Component {
         };
     }
 
+
     /**
       * @FunctionName: componentDidMount
       * @Description: This is the component life cycle hook method.When the component gets rendered, then it fetches 
@@ -41,18 +43,58 @@ class UserContent extends Component {
             });
     }
 
+
+    /**
+      * @FunctionName: compareData
+      * @Description: This function is used to check is there any data available in query property of location object. And based
+      * on this call either the update or add function. If 'id' exists then call update function else call add new function.
+      *
+      **/
     compareData() {
-        if (this.props.location.query != undefined) {
-            let dublipcateData = this.state.userList;
-            let data = dublipcateData.map((el, i) => {
-                if (el.id == this.props.location.query[0]) {
-                    el.name = this.props.location.query[1];
-                    el.email = this.props.location.query[2];
-                    el.address.city = this.props.location.query[3];
-                    this.setState({ userList: dublipcateData })
-                }
-            }).bind(this)
+        let dublipcateData = this.state.userList;
+        if (this.props.location.query[0] != undefined) {
+            this.updateExistingUser(dublipcateData)
         }
+        else {
+            this.addNewUser(dublipcateData);
+        }
+    }
+
+
+    /**
+      * @FunctionName: addNewUser
+      * @Params: dublipcateData- This is the duplicate of userList.
+      * @Description: This function is used to add the new user in the userList.
+      * "selectedId".
+      *
+      **/
+    addNewUser(dublipcateData) {
+        let obj = {};
+        let getNewId = dublipcateData.length;
+        obj.id = getNewId;
+        obj.name = this.props.location.query[1];
+        obj.email = this.props.location.query[2];
+        obj.address = { city: this.props.location.query[3] };
+        dublipcateData.push(obj);
+        return this.setState({ userList: dublipcateData })
+    }
+
+
+    /**
+      * @FunctionName: updateExistingUser
+      * @Params: dublipcateData- This is the duplicate of userList.
+      * @Description:  This function is used to update the user in the userList.
+      *
+      **/
+    updateExistingUser(dublipcateData) {
+        let data = dublipcateData.map((el, i) => {
+            if (el.id == this.props.location.query[0]) {
+                el.name = this.props.location.query[1];
+                el.email = this.props.location.query[2];
+                el.address.city = this.props.location.query[3];
+            }
+            return this.setState({ userList: dublipcateData })
+        }).bind(this)
     }
 
 
@@ -70,15 +112,34 @@ class UserContent extends Component {
         })
     }
 
-    render() {
 
+    /**
+      * @FunctionName: removeUser
+      * @Params: user- This is the single user object which is to remove.
+      * @Description: This function is used to remove selected user.
+      *
+      **/
+    removeUser(user) {
+        let dublipcateData = this.state.userList;
+        let data = dublipcateData.map((el, i) => {
+            if (el.id == user.id) {
+                dublipcateData.splice(i, 1);
+                return this.setState({ userList: dublipcateData })
+            }
+        })
+    }
+
+    render() {
         return (
             <div>
-                <div className="col-md-7">
+                <div className="col-md-5">
+                    <div className="user-list-header">
+                        <Link to="/addUser"><p>+ Add New User</p></Link>
+                    </div>
                     <UsersContainer selectedId={this.state.selectedId} userList={this.state.userList} getUserDetails={this.getUserDetails.bind(this)}></UsersContainer>
                 </div>
-                <div className="col-md-5">
-                    <UserDetails singleUser={this.state.singleUser}></UserDetails>
+                <div className="col-md-7">
+                    <UserDetails singleUser={this.state.singleUser} removeUser={this.removeUser.bind(this)}></UserDetails>
                 </div>
             </div>
         );

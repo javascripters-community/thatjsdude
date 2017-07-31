@@ -5,6 +5,7 @@ import UserContent from './components/UserContent/UserContent';
 import HomeContent from './components/HomeContent/HomeContent';
 import NotFound from './components/NotFound/NotFound';
 import { UserEdit } from './components/UserContent/UserEdit/UserEdit'
+import {AddUser }from './components/UserContent/AddUser/AddUser';
 import './App.css';
 
 class App extends Component {
@@ -23,6 +24,7 @@ class App extends Component {
               <Switch>
                 <Route exact path="/" component={HomeContent}></Route>
                 <Route path="/usersList" component={UserContent}></Route>
+                <Route path="/addUser" component={AddUser}></Route>
                 <Route path="/userEdit/:userId" component={UserEdit}></Route>
                 <Route path="*" component={NotFound}></Route>
               </Switch>
