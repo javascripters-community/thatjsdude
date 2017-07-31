@@ -124,7 +124,8 @@ class UserContent extends Component {
         let data = dublipcateData.map((el, i) => {
             if (el.id == user.id) {
                 dublipcateData.splice(i, 1);
-                return this.setState({ userList: dublipcateData })
+                return this.setState({ userList: dublipcateData,
+                    singleUser:{} })
             }
         })
     }
