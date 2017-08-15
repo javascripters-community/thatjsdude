@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 
+//import component
 import Header from './components/Header/Header';
 import HotelLists from './components/HotelLists/HotelLists';
 import Footer from './components/Footer/Footer';

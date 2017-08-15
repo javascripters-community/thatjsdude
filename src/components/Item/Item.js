@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 
+//import item css
 import './Item.css';
 
 class Item extends Component {
     constructor(props){
         super(props);
-        this.imageUrl = this.props.imageBaseUrl+this.props.hotellist.cldImage.url;
     }
     render() {
         return (
             <div className="Item">
-                <img src={this.imageUrl} alt=""/>
+                <img src={`${this.props.imageBaseUrl}${this.props.hotellist.cldImage.url}`} alt={`${this.props.hotellist.cldImage.caption}`} />
                 <div className="Item-Details">
                     <h3 className="Item-Titel">{this.props.hotellist.n}</h3>
                     <div className="Item-Location">

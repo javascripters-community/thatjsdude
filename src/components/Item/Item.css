@@ -1,3 +1,4 @@
+/* Start Item style*/
 .Item{
     margin-bottom: 20px;
     background-color: #FFFFFF;
@@ -33,3 +34,4 @@
     border: 1px solid #F34F4F;
     cursor: pointer;
 }
+/*End item style */

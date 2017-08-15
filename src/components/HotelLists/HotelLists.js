@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 
+//import hotel list css
 import './HotelLists.css';
+
+//import component
 import Item from '../Item/Item';
 import hotelList from '../../fakeData/hotels';
 
@@ -13,9 +16,11 @@ class HotelLists extends Component {
         };
     }
     componentDidMount(){
+        //get first 10 hotel from hotel list
         var firstPageData =  hotelList.content.hotels.slice(0,10);
         var imageBaseUrl = hotelList.content.cldImageHost;
-        console.log(firstPageData);
+        
+        //set state of hotels and base url
         this.setState({
             hotels:firstPageData,
             baseUrl:imageBaseUrl
